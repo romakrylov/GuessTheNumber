@@ -13,7 +13,7 @@ int attempt = new Scanner(System.in).nextInt();
 6. Пример работы программы:
 
    30
-   Угаданное число больше
+   Загаданное число больше
    77
    Загаданное число меньше
    60
@@ -26,11 +26,27 @@ int attempt = new Scanner(System.in).nextInt();
 int value = new Random().nextInt(100);
 */
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        int secretNumber = new Random().nextInt(100);
         System.out.println("Угадай число от 1 до 100:");
-        int value = new Scanner(System.in).nextInt();
+
+        while (true) {
+            int number = new Scanner(System.in).nextInt();
+
+            if (number > secretNumber) {
+                System.out.println("Загаданное число меньше");
+            } else if (number < secretNumber) {
+                System.out.println("Загаданное число больше");
+            } else {
+                System.out.println("Вы угадали число!");
+                break;
+            }
+        }
     }
 }
+
